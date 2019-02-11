@@ -29,7 +29,7 @@ public class CalendarProgram{
 	public Container pane;
 	public JScrollPane scrollCalendarTable;
 	public JPanel calendarPanel;
-	public JButton addEvent, loadFiles;
+	public JButton btnAddEvent, btnLoadFiles;
         
         /**** Calendar Table Components ***/
 	public JTable calendarTable;
@@ -84,8 +84,8 @@ public class CalendarProgram{
 		frmMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		//added code
-			addEvent = new JButton("Add Event");
-			loadFiles = new JButton("Load Files");
+			btnAddEvent = new JButton("Add Event");
+			btnLoadFiles = new JButton("Load Files");
 
 		monthLabel = new JLabel ("January");
 		yearLabel = new JLabel ("Change year:");
@@ -120,8 +120,8 @@ public class CalendarProgram{
 		cmbYear.addActionListener(new cmbYear_Action());
 		
 		pane.add(calendarPanel);
-		calendarPanel.add(addEvent);//added
-		calendarPanel.add(loadFiles);//added
+		calendarPanel.add(btnAddEvent);//added
+		calendarPanel.add(btnLoadFiles);//added
 
 		calendarPanel.add(monthLabel);
 		calendarPanel.add(yearLabel);
@@ -134,8 +134,8 @@ public class CalendarProgram{
                 monthLabel.setBounds(320-monthLabel.getPreferredSize().width/2, 50, 200, 50);
 		yearLabel.setBounds(20, 610, 160, 40);
 
-		addEvent.setBounds(20,635,100,20);
-		loadFiles.setBounds(20,655,100,20);
+		btnAddEvent.setBounds(20,635,100,20);
+		btnLoadFiles.setBounds(20,655,100,20);
 
 		cmbYear.setBounds(460, 610, 160, 40);
 		btnPrev.setBounds(20, 50, 100, 50);
@@ -223,4 +223,12 @@ public class CalendarProgram{
 			}
 		}
 	}
+
+	public class addEvent_Action implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+
+		}
+	}
+
 }
