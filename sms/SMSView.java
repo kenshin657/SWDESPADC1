@@ -30,7 +30,8 @@ public class SMSView extends JFrame{
 		appID = ++appIDTracker;
 		smsNo = 0;
 		
-		setTitle("Facebook App #" + appID);
+		//setTitle("Facebook App #" + appID); removed this line of code so that it will be less confusing
+		setTitle("SMS View" + appID);
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE); //set the behavior of the window when the X icon is clicked
 		

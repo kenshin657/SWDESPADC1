@@ -22,7 +22,7 @@ public class PSFRead extends FileRead {
 
         BufferedReader br = null;
         String line = "";
-        String psvSplit = "|";
+        String psvSplit = "[|]";
 
         List<Event> eventList = new ArrayList<Event>(); //events received from csv file
 
@@ -53,8 +53,6 @@ public class PSFRead extends FileRead {
                     e.printStackTrace();
                 }
         }
-
-        System.out.println(eventList.get(0).getEventName() + eventList.get(0).getDate());
 
         return eventList;
     }
