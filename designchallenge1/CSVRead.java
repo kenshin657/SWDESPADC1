@@ -6,7 +6,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class CSVRead extends FileRead {
 
@@ -18,8 +17,6 @@ public class CSVRead extends FileRead {
     @Override
     List<Event> fileLoad() {
         System.out.println(super.filePath + "\n\n\n");
-
-        Scanner sc = new Scanner(System.in);
 
         String csvFile = super.filePath;
 
@@ -56,7 +53,7 @@ public class CSVRead extends FileRead {
                     e.printStackTrace();
                 }
         }
-        
-        return null;
+
+        return eventList;
     }
 }
