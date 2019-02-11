@@ -9,7 +9,13 @@ public class LoadFile {
     private JButton loadPDFButton;
     private JPanel frmLoadFile;
 
+    public JPanel getFrmLoadFile() {
+        return frmLoadFile;
+    }
+
     public LoadFile() {
+
+
         loadCSVButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

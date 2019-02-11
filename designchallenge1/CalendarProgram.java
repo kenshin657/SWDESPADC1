@@ -118,6 +118,9 @@ public class CalendarProgram{
 		btnPrev.addActionListener(new btnPrev_Action());
 		btnNext.addActionListener(new btnNext_Action());
 		cmbYear.addActionListener(new cmbYear_Action());
+
+		//added code
+		btnLoadFiles.addActionListener(new loadFile_Action());
 		
 		pane.add(calendarPanel);
 		calendarPanel.add(btnAddEvent);//added
@@ -228,6 +231,18 @@ public class CalendarProgram{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 
+		}
+	}
+
+	public class loadFile_Action implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			JFrame jFrame = new JFrame("File Load");
+			jFrame.setContentPane(new LoadFile().getFrmLoadFile());
+			jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			jFrame.setSize(450,100);
+			jFrame.setLocationRelativeTo(null);
+			jFrame.setVisible(true);
 		}
 	}
 
