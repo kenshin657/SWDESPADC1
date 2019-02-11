@@ -53,8 +53,6 @@ public class CSVRead extends FileRead {
                 }
         }
 
-        System.out.println(eventList.get(0).getEventName());
-        System.out.println(eventList.get(1).getEventName());
         return eventList;
     }
 }
