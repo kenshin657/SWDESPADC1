@@ -1,40 +1,31 @@
 package designchallenge1;
 
 public class Event {
-    String eventname;
-    int nEventDay;
-    int nEventYear;
-    String eventMonth;
+    private String date;
+    private String eventName;
+    private String textColor;
 
-    public String getEventname() {
-        return eventname;
+    public String getDate() {
+        return date;
     }
 
-    public void setEventname(String eventname) {
-        this.eventname = eventname;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public int getnEventDay() {
-        return nEventDay;
+    public String getEventName() {
+        return eventName;
     }
 
-    public void setnEventDay(int nEventDay) {
-        this.nEventDay = nEventDay;
+    public void setEventName(String eventName) {
+        this.eventName = eventName;
     }
 
-    public int getnEventYear() {
-        return nEventYear;
+    public String getTextColor() {
+        return textColor;
     }
 
-    public void setnEventYear(int nEventYear) {
-        this.nEventYear = nEventYear;
-    }
-
-    public String getEventMonth() {
-        return eventMonth;
-    }
-
-    public void setEventMonth(String eventMonth) {
-        this.eventMonth = eventMonth;
+    public void setTextColor(String textColor) {
+        this.textColor = textColor;
     }
 }

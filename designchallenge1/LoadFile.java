@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 
 public class LoadFile {
     private JButton loadCSVButton;
-    private JButton loadPDFButton;
+    private JButton loadPSFButton;
     private JPanel frmLoadFile;
 
     public JPanel getFrmLoadFile() {
@@ -20,14 +20,16 @@ public class LoadFile {
             @Override
             public void actionPerformed(ActionEvent e) {
                 CSVRead csvRead = new CSVRead();
+                csvRead.getFilePath();
                 csvRead.fileLoad();
             }
         });
-        loadPDFButton.addActionListener(new ActionListener() {
+        loadPSFButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                PDFRead pdfRead = new PDFRead();
-                pdfRead.fileLoad();
+                PSFRead psfRead = new PSFRead();
+                psfRead.getFilePath();
+                psfRead.fileLoad();
             }
         });
     }

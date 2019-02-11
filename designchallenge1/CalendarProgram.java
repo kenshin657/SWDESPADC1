@@ -239,7 +239,7 @@ public class CalendarProgram{
 		public void actionPerformed(ActionEvent e) {
 			JFrame jFrame = new JFrame("File Load");
 			jFrame.setContentPane(new LoadFile().getFrmLoadFile());
-			jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			jFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 			jFrame.setSize(450,100);
 			jFrame.setLocationRelativeTo(null);
 			jFrame.setVisible(true);
