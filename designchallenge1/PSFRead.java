@@ -22,13 +22,12 @@ public class PSFRead extends FileRead {
 
         BufferedReader br = null;
         String line = "";
-        String psvSplit =" | ";
+        String psvSplit = "|";
 
         List<Event> eventList = new ArrayList<Event>(); //events received from csv file
 
         try {
             br = new BufferedReader(new FileReader(psvFile));
-            br.readLine();
 
             while ((line = br.readLine()) != null) {
                 Event eventInfo = new Event();

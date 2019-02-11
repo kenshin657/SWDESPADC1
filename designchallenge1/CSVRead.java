@@ -28,7 +28,6 @@ public class CSVRead extends FileRead {
 
         try {
             br = new BufferedReader(new FileReader(csvFile));
-            br.readLine();
 
             while ((line = br.readLine()) != null) {
                 Event eventInfo = new Event();
@@ -54,6 +53,8 @@ public class CSVRead extends FileRead {
                 }
         }
 
+        System.out.println(eventList.get(0).getEventName());
+        System.out.println(eventList.get(1).getEventName());
         return eventList;
     }
 }
