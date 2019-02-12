@@ -65,6 +65,7 @@ public class CalendarProgram{
 		nod = cal.getActualMaximum(GregorianCalendar.DAY_OF_MONTH);
 		som = cal.get(GregorianCalendar.DAY_OF_WEEK);
 
+
 		/*****make experiment***/
 		for (i = 1; i <= nod; i++)
                 {
@@ -72,9 +73,8 @@ public class CalendarProgram{
 			int column  =  (i+som-2)%7;
 			modelCalendarTable.setValueAt(i, row, column);
         for (int x = 0; x < eventList.size(); x++) {
-            if(eventList.get(x).getnYear() == year && eventList.get(x).getnMonth() == month && eventList.get(x).getnDay() == i) {
+            if(eventList.get(x).getnYear() == year && eventList.get(x).getnMonth()-1 == month && eventList.get(x).getnDay() == i) {
                 String eventName;
-                String day = Integer.toString(i);
                 eventName = "<html><font color=\""+eventList.get(x).getTextColor()+"\">" +
                             eventList.get(x).getEventName()+ "</font></html>";
                 modelCalendarTable.setValueAt(eventName, row, column);
