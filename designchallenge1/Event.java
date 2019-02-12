@@ -16,9 +16,9 @@ public class Event {
         this.date = date;
 
         String[] sepDate = date.split("/");
-        this.nMonth = Integer.parseInt(sepDate[0]);
-        this.nDay = Integer.parseInt(sepDate[1]);
-        this.nYear = Integer.parseInt(sepDate[2]);
+        this.nMonth = Integer.parseInt(sepDate[0].trim());
+        this.nDay = Integer.parseInt(sepDate[1].trim());
+        this.nYear = Integer.parseInt(sepDate[2].trim());
     }
 
     public String getEventName() {

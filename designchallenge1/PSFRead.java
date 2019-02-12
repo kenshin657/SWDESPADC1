@@ -24,7 +24,7 @@ public class PSFRead extends FileRead {
         String line = "";
         String psvSplit = "[|]";
 
-        List<Event> eventList = new ArrayList<Event>(); //events received from csv file
+        List<Event> eventList = new ArrayList<Event>(); //events received from psv file
 
         try {
             br = new BufferedReader(new FileReader(psvFile));

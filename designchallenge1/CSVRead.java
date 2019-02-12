@@ -52,7 +52,6 @@ public class CSVRead extends FileRead {
                     e.printStackTrace();
                 }
         }
-
         return eventList;
     }
 }
