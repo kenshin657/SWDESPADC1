@@ -76,7 +76,7 @@ public class CalendarProgram{
             if(eventList.get(x).getnYear() == year && eventList.get(x).getnMonth()-1 == month && eventList.get(x).getnDay() == i) {
                 String eventName;
                 String day = Integer.toString(i);
-                eventName = "<html><font color=\""+eventList.get(x).getTextColor()+"\">" + day +"\n" +
+                eventName = "<html><font color=\""+eventList.get(x).getTextColor()+"\">" + day +" " +
                             eventList.get(x).getEventName()+ "</font></html>";
                 modelCalendarTable.setValueAt(eventName, row, column);
             }
