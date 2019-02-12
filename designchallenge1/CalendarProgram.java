@@ -266,8 +266,6 @@ public class CalendarProgram{
 	public void setEventList(List<Event> e) {
             if(this.eventList.isEmpty())
                 this.eventList.addAll(e);
-
-        System.out.println(eventList.get(0).getEventName());
     }
 
 }
