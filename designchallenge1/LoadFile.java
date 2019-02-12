@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class LoadFile {
+public class LoadFile extends CalendarProgram{
     private JButton loadCSVButton;
     private JButton loadPSFButton;
     private JPanel frmLoadFile;
@@ -21,7 +21,7 @@ public class LoadFile {
             public void actionPerformed(ActionEvent e) {
                 CSVRead csvRead = new CSVRead();
                 csvRead.getFilePath();
-                csvRead.fileLoad();
+                setEventList(csvRead.fileLoad());
             }
         });
         loadPSFButton.addActionListener(new ActionListener() {

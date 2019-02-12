@@ -15,6 +15,7 @@ import javax.swing.table.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
+import java.util.List;
 
 public class CalendarProgram{
 	
@@ -30,6 +31,10 @@ public class CalendarProgram{
 	public JScrollPane scrollCalendarTable;
 	public JPanel calendarPanel;
 	public JButton btnAddEvent, btnLoadFiles;
+
+	/***EVENTS COMPONENTS****/
+	private List<Event> eventList = new ArrayList<Event>();
+
         
         /**** Calendar Table Components ***/
 	public JTable calendarTable;
@@ -59,12 +64,23 @@ public class CalendarProgram{
 		GregorianCalendar cal = new GregorianCalendar(year, month, 1);
 		nod = cal.getActualMaximum(GregorianCalendar.DAY_OF_MONTH);
 		som = cal.get(GregorianCalendar.DAY_OF_WEEK);
-		
+
+		/*****make experiment***/
 		for (i = 1; i <= nod; i++)
                 {
 			int row = new Integer((i+som-2)/7);
 			int column  =  (i+som-2)%7;
 			modelCalendarTable.setValueAt(i, row, column);
+        for (int x = 0; x < eventList.size(); x++) {
+            if(eventList.get(x).getnYear() == year && eventList.get(x).getnMonth() == month && eventList.get(x).getnDay() == i) {
+                String eventName;
+                String day = Integer.toString(i);
+                eventName = "<html><font color=\""+eventList.get(x).getTextColor()+"\">" +
+                            eventList.get(x).getEventName()+ "</font></html>";
+                modelCalendarTable.setValueAt(eventName, row, column);
+            }
+        }
+
 		}
 
 		calendarTable.setDefaultRenderer(calendarTable.getColumnClass(0), new TableRenderer());
@@ -245,5 +261,14 @@ public class CalendarProgram{
 			jFrame.setVisible(true);
 		}
 	}
+
+	public void setEventList(List<Event> e) {
+            if(this.eventList.isEmpty())
+                this.eventList.addAll(e);
+            else
+                eventList.addAll(e);
+
+        System.out.println(eventList.get(0).getEventName());
+    }
 
 }
