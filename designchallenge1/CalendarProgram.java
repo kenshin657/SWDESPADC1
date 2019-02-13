@@ -251,12 +251,11 @@ public class CalendarProgram{
 		}
 	}
 
-	public class loadFile_Action implements ActionListener {
+	public class loadFile_Action implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			JFrame jFrame = new JFrame("File Load");
-			jFrame.setContentPane(new LoadFile().getFrmLoadFile());
-			frmMain.setVisible(false);
+			jFrame.setContentPane(new LoadFile(CalendarProgram.this).getFrmLoadFile());
 			jFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 			jFrame.setSize(450,100);
 			jFrame.setLocationRelativeTo(null);
