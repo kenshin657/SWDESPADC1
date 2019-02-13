@@ -48,4 +48,16 @@ public class Event {
     public int getnDay() {
         return nDay;
     }
+
+    public void setnMonth(int nMonth) {
+        this.nMonth = nMonth;
+    }
+
+    public void setnYear(int nYear) {
+        this.nYear = nYear;
+    }
+
+    public void setnDay(int nDay) {
+        this.nDay = nDay;
+    }
 }

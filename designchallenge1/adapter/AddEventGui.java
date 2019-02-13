@@ -16,14 +16,14 @@ public class AddEventGui {
     private JLabel Color;
     private JComboBox colorChooser;
     private JButton addEventButton;
-    private JCheckBox saveToCSVCheckBox;
-    private JCheckBox saveToPSVCheckBox;
+    private JCheckBox yearlyCheckBox;
 
     GregorianCalendar calendar = new GregorianCalendar();
 
     public JPanel getPanel() {
         return panel;
     }
+
 
     public AddEventGui(CalendarProgram cp) {
         int yearBound = calendar.get(GregorianCalendar.YEAR);
@@ -39,7 +39,10 @@ public class AddEventGui {
         addEventButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-    
+                AddEventCal eventCal = new AddEventCal();
+                cp.addEventList(eventCal.addEvent(eventNameTxtField.getText(),Integer.parseInt(Month.getSelectedItem().toString()),
+                        Integer.parseInt(Day.getSelectedItem().toString()),Integer.parseInt(Year.getSelectedItem().toString()),colorChooser.getSelectedItem().toString()));
+
             }
         });
     }
