@@ -29,7 +29,7 @@ public class LoadFile extends CalendarProgram{
             public void actionPerformed(ActionEvent e) {
                 PSFRead psfRead = new PSFRead();
                 psfRead.getFilePath();
-                psfRead.fileLoad();
+                setEventList(psfRead.fileLoad());
             }
         });
     }

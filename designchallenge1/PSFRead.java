@@ -36,7 +36,7 @@ public class PSFRead extends FileRead {
 
                 eventInfo.setEventName(event[0]);
                 eventInfo.setDate(event[1]);
-                eventInfo.setTextColor(event[2]);
+                eventInfo.setTextColor(event[2].trim());
 
                 eventList.add(eventInfo);
 
