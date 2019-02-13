@@ -276,6 +276,18 @@ public class CalendarProgram{
     }
 
     public void addEventList(Event e) {
+        	if (e.getnYear() == 9999)
+        		for(int i = 1919; i <= 2119; i++) {
+        			Event event = new Event();
+        			event.setEventName(e.getEventName());
+        			event.setnMonth(e.getnMonth());
+        			event.setnDay(e.getnDay());
+        			event.setnYear(i);
+        			event.setTextColor(e.getTextColor());
+
+        			this.eventList.add(event);
+				}
+
         	this.eventList.add(e);
 	}
 

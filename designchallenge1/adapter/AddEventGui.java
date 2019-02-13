@@ -40,8 +40,16 @@ public class AddEventGui {
             @Override
             public void actionPerformed(ActionEvent e) {
                 AddEventCal eventCal = new AddEventCal();
-                cp.addEventList(eventCal.addEvent(eventNameTxtField.getText(),Integer.parseInt(Month.getSelectedItem().toString()),
-                        Integer.parseInt(Day.getSelectedItem().toString()),Integer.parseInt(Year.getSelectedItem().toString()),colorChooser.getSelectedItem().toString()));
+                AddEvent yearlyAdapter = new YearlyAdapter();
+                if (yearlyCheckBox.isSelected() == false)
+                    cp.addEventList(eventCal.addEvent(eventNameTxtField.getText(),Integer.parseInt(Month.getSelectedItem().toString()),
+                         Integer.parseInt(Day.getSelectedItem().toString()),Integer.parseInt(Year.getSelectedItem().toString()),colorChooser.getSelectedItem().toString()));
+
+                if(yearlyCheckBox.isSelected() == true)
+                    cp.addEventList(yearlyAdapter.addEvent(eventNameTxtField.getText(),Integer.parseInt(Month.getSelectedItem().toString()),
+                            Integer.parseInt(Day.getSelectedItem().toString()),Integer.parseInt(Year.getSelectedItem().toString()),colorChooser.getSelectedItem().toString()));
+
+
 
             }
         });
