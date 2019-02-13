@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class LoadFile extends JFrame{
+public class LoadFile{
     private JButton loadCSVButton;
     private JButton loadPSFButton;
     private JPanel frmLoadFile;
