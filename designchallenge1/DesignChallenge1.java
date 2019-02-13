@@ -21,6 +21,5 @@ public class DesignChallenge1 {
         CalendarProgram cp = new CalendarProgram();
         FBView fbView = new FBView();
         SMSView smsView = new SMSView();
-        System.out.println("\u001B31;1mhello world!");
     }
 }

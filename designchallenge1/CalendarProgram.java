@@ -66,7 +66,7 @@ public class CalendarProgram{
 		som = cal.get(GregorianCalendar.DAY_OF_WEEK);
 
 
-		/*****make experiment***/
+		/*****Adds Events to the Calendar***/
 		for (i = 1; i <= nod; i++)
                 {
 			int row = new Integer((i+som-2)/7);
@@ -256,6 +256,7 @@ public class CalendarProgram{
 		public void actionPerformed(ActionEvent e) {
 			JFrame jFrame = new JFrame("File Load");
 			jFrame.setContentPane(new LoadFile().getFrmLoadFile());
+			frmMain.setVisible(false);
 			jFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 			jFrame.setSize(450,100);
 			jFrame.setLocationRelativeTo(null);
