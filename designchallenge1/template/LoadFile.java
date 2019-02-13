@@ -1,4 +1,8 @@
-package designchallenge1;
+package designchallenge1.template;
+
+import designchallenge1.CalendarProgram;
+import designchallenge1.template.CSVRead;
+import designchallenge1.template.PSFRead;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

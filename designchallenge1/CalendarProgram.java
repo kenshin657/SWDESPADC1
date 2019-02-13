@@ -9,8 +9,10 @@ package designchallenge1;
  * @author Arturo III
  */
 
+import designchallenge1.adapter.AddEventGui;
+import designchallenge1.template.LoadFile;
+
 import javax.swing.*;
-import javax.swing.event.*;
 import javax.swing.table.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -136,8 +138,9 @@ public class CalendarProgram{
 		btnNext.addActionListener(new btnNext_Action());
 		cmbYear.addActionListener(new cmbYear_Action());
 
-		//added code
+		/**added code**/
 		btnLoadFiles.addActionListener(new loadFile_Action());
+		btnAddEvent.addActionListener(new addEvent_Action());
 		
 		pane.add(calendarPanel);
 		calendarPanel.add(btnAddEvent);//added
@@ -247,7 +250,12 @@ public class CalendarProgram{
 	public class addEvent_Action implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-
+			JFrame jFrame = new JFrame("Add Event");
+			jFrame.setContentPane(new AddEventGui(CalendarProgram.this).getPanel());
+			jFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+			jFrame.pack();
+			jFrame.setLocationRelativeTo(null);
+			jFrame.setVisible(true);
 		}
 	}
 
@@ -266,5 +274,9 @@ public class CalendarProgram{
 	public void setEventList(List<Event> e) {
                 this.eventList.addAll(e);
     }
+
+    public void addEventList(Event e) {
+        	this.eventList.add(e);
+	}
 
 }

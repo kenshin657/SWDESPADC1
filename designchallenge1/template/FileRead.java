@@ -1,4 +1,6 @@
-package designchallenge1;
+package designchallenge1.template;
+
+import designchallenge1.Event;
 
 import javax.swing.*;
 import java.util.List;

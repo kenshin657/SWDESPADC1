@@ -1,4 +1,6 @@
-package designchallenge1;
+package designchallenge1.template;
+
+import designchallenge1.Event;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
