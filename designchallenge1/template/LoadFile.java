@@ -12,6 +12,7 @@ public class LoadFile{
     private JButton loadCSVButton;
     private JButton loadPSFButton;
     private JPanel frmLoadFile;
+    private JCheckBox holidayCSVCheckBox;
 
     public JPanel getFrmLoadFile() {
         return frmLoadFile;
@@ -24,8 +25,15 @@ public class LoadFile{
             @Override
             public void actionPerformed(ActionEvent e) {
                 CSVRead csvRead = new CSVRead();
-                csvRead.getFilePath();
-                cp.setEventList(csvRead.fileLoad());
+                CSVPhilippineHoliday csvPhilippineHoliday = new CSVPhilippineHoliday();
+                if(holidayCSVCheckBox.isSelected()) {
+                    csvPhilippineHoliday.getFilePath();
+                    cp.setEventList(csvPhilippineHoliday.fileLoad());
+                }
+                else {
+                    csvRead.getFilePath();
+                    cp.setEventList(csvRead.fileLoad());
+                }
             }
         });
         loadPSFButton.addActionListener(new ActionListener() {

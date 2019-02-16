@@ -32,7 +32,10 @@ public class CalendarProgram{
 	public Container pane;
 	public JScrollPane scrollCalendarTable;
 	public JPanel calendarPanel;
-	public JButton btnAddEvent, btnLoadFiles;
+	// savebutton
+	public JButton btnAddEvent, btnLoadFiles, btnSave;
+
+
 
 	/***EVENTS COMPONENTS****/
 	private List<Event> eventList = new ArrayList<Event>();
@@ -75,13 +78,26 @@ public class CalendarProgram{
 			int column  =  (i+som-2)%7;
 			modelCalendarTable.setValueAt(i, row, column);
         for (int x = 0; x < eventList.size(); x++) {
-            if(eventList.get(x).getnYear() == year && eventList.get(x).getnMonth()-1 == month && eventList.get(x).getnDay() == i) {
-                String eventName;
-                String day = Integer.toString(i);
-                eventName = "<html><font color=\""+eventList.get(x).getTextColor()+"\">" + day +" " +
-                            eventList.get(x).getEventName()+ "</font></html>";
-                modelCalendarTable.setValueAt(eventName, row, column);
-            }
+        	if(eventList.get(x).getnYear()== 9999) {
+				if (eventList.get(x).getnMonth() - 1 == month && eventList.get(x).getnDay() == i) {
+
+
+					String eventName;
+					String day = Integer.toString(i);
+					eventName = "<html><font color=\"" + eventList.get(x).getTextColor() + "\">" + day + "<br>" +
+							eventList.get(x).getEventName() + "</font></html>";
+					modelCalendarTable.setValueAt(eventName, row, column);
+				}
+			}
+           else{
+           	if(eventList.get(x).getnYear() == year && eventList.get(x).getnMonth()-1 == month && eventList.get(x).getnDay() == i) {
+					String eventName;
+					String day = Integer.toString(i);
+					eventName = "<html><font color=\""+eventList.get(x).getTextColor()+"\">" + day +" " +
+							eventList.get(x).getEventName()+ "</font></html>" ;
+					modelCalendarTable.setValueAt(eventName, row, column);
+				}
+			}
         }
 
 		}
@@ -105,7 +121,7 @@ public class CalendarProgram{
 		//added code
 			btnAddEvent = new JButton("Add Event");
 			btnLoadFiles = new JButton("Load Files");
-
+			btnSave = new JButton("Save Calendar");
 		monthLabel = new JLabel ("January");
 		yearLabel = new JLabel ("Change year:");
 		cmbYear = new JComboBox();
@@ -141,10 +157,12 @@ public class CalendarProgram{
 		/**added code**/
 		btnLoadFiles.addActionListener(new loadFile_Action());
 		btnAddEvent.addActionListener(new addEvent_Action());
-		
+		btnSave.addActionListener(new save_Action());
 		pane.add(calendarPanel);
 		calendarPanel.add(btnAddEvent);//added
 		calendarPanel.add(btnLoadFiles);//added
+			calendarPanel.add(btnSave);
+
 
 		calendarPanel.add(monthLabel);
 		calendarPanel.add(yearLabel);
@@ -159,6 +177,7 @@ public class CalendarProgram{
 
 		btnAddEvent.setBounds(20,635,100,20);
 		btnLoadFiles.setBounds(20,655,100,20);
+		btnSave.setBounds(150, 635, 150, 20);
 
 		cmbYear.setBounds(460, 610, 160, 40);
 		btnPrev.setBounds(20, 50, 100, 50);
@@ -256,6 +275,7 @@ public class CalendarProgram{
 			jFrame.pack();
 			jFrame.setLocationRelativeTo(null);
 			jFrame.setVisible(true);
+
 		}
 	}
 
@@ -271,12 +291,28 @@ public class CalendarProgram{
 		}
 	}
 
+
+	public class save_Action implements ActionListener{
+
+
+        @Override
+
+			public void actionPerformed(ActionEvent e) {
+        		CSVSave savefile= new CSVSave();
+
+					savefile.saveEvent(eventList);
+				}
+			}
+
 	public void setEventList(List<Event> e) {
                 this.eventList.addAll(e);
     }
 
+
+
+
     public void addEventList(Event e) {
-        	if (e.getnYear() == 9999)
+        	/*if (e.getnYear() == 9999)
         		for(int i = 1919; i <= 2119; i++) {
         			Event event = new Event();
         			event.setEventName(e.getEventName());
@@ -287,8 +323,12 @@ public class CalendarProgram{
 
         			this.eventList.add(event);
 				}
-
+        	else*/
         	this.eventList.add(e);
+
+
+
+
 	}
 
 }
