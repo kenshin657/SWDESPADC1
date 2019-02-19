@@ -11,6 +11,8 @@ package designchallenge1;
 
 import designchallenge1.adapter.AddEventGui;
 import designchallenge1.template.LoadFile;
+import designchallenge1.observer.FacebookUpdate;
+import designchallenge1.observer.SMSUpdate;
 
 import javax.swing.*;
 import javax.swing.table.*;
@@ -35,7 +37,9 @@ public class CalendarProgram{
 	// savebutton
 	public JButton btnAddEvent, btnLoadFiles, btnSave;
 
-
+    // update
+    public FacebookUpdate fbupdate = new FacebookUpdate();
+    public SMSUpdate smsupdate = new SMSUpdate();
 
 	/***EVENTS COMPONENTS****/
 	private List<Event> eventList = new ArrayList<Event>();
@@ -43,8 +47,7 @@ public class CalendarProgram{
         
         /**** Calendar Table Components ***/
 	public JTable calendarTable;
-        public DefaultTableModel modelCalendarTable;
-        
+        public DefaultTableModel modelCalendarTable;private boolean execute = false;
         public void refreshCalendar(int month, int year)
         {
 		String[] months =  {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
@@ -103,7 +106,12 @@ public class CalendarProgram{
 		}
 
 		calendarTable.setDefaultRenderer(calendarTable.getColumnClass(0), new TableRenderer());
+
+
+		fbupdate.update(eventList);
+		smsupdate.update(eventList);
 	}
+
         
 	public CalendarProgram()
         {
@@ -265,6 +273,8 @@ public class CalendarProgram{
 			}
 		}
 	}
+
+
 
 	public class addEvent_Action implements ActionListener {
 		@Override
