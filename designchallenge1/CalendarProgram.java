@@ -18,6 +18,7 @@ import javax.swing.*;
 import javax.swing.table.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.List;
 
@@ -43,11 +44,12 @@ public class CalendarProgram{
 
 	/***EVENTS COMPONENTS****/
 	private List<Event> eventList = new ArrayList<Event>();
+
         
         /**** Calendar Table Components ***/
 	public JTable calendarTable;
         public DefaultTableModel modelCalendarTable;
-        
+
         public void refreshCalendar(int month, int year)
         {
 		String[] months =  {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
@@ -99,6 +101,8 @@ public class CalendarProgram{
 					eventName = "<html><font color=\""+eventList.get(x).getTextColor()+"\">" + day +" " +
 							eventList.get(x).getEventName()+ "</font></html>" ;
 					modelCalendarTable.setValueAt(eventName, row, column);
+
+
 				}
 			}
         }
@@ -107,11 +111,13 @@ public class CalendarProgram{
 
 		calendarTable.setDefaultRenderer(calendarTable.getColumnClass(0), new TableRenderer());
 
+if(fbupdate.getNotifOnce() ==0 && smsupdate.getNotifOnce() == 0) {
+	fbupdate.update(eventList);
+	smsupdate.update(eventList);
 
-			fbupdate.update(eventList);
-			smsupdate.update(eventList);
+}
+        }
 
-	}
 
         
 	public CalendarProgram()
