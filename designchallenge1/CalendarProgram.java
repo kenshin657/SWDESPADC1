@@ -43,11 +43,11 @@ public class CalendarProgram{
 
 	/***EVENTS COMPONENTS****/
 	private List<Event> eventList = new ArrayList<Event>();
-
         
         /**** Calendar Table Components ***/
 	public JTable calendarTable;
-        public DefaultTableModel modelCalendarTable;private boolean execute = false;
+        public DefaultTableModel modelCalendarTable;
+        
         public void refreshCalendar(int month, int year)
         {
 		String[] months =  {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
@@ -108,8 +108,9 @@ public class CalendarProgram{
 		calendarTable.setDefaultRenderer(calendarTable.getColumnClass(0), new TableRenderer());
 
 
-		fbupdate.update(eventList);
-		smsupdate.update(eventList);
+			fbupdate.update(eventList);
+			smsupdate.update(eventList);
+
 	}
 
         

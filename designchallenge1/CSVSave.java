@@ -1,4 +1,6 @@
 package designchallenge1;
+import designchallenge1.Event;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
